@@ -1,0 +1,9 @@
+.btn-text{
+    font-size: 14px;
+    
+}
+
+.card:hover img{
+    scale: 1.05;
+    transition: 0.5s;
+}

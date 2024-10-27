@@ -1,0 +1,55 @@
+<div *ngIf="allProduct.length==0" class="d-flex align-items-center justify-content-center flex-column pb-5">
+    <div><img src="https://cdn.dribbble.com/users/2046015/screenshots/4591856/first_white_girl_drbl.gif" height="400px" alt=""></div>
+    <h2 class="text-danger">Your cart is empty</h2>
+   <a>Add your cart</a>
+</div>
+
+<div *ngIf="allProduct.length!==0" class="d-flex align-items-center justify-content-center flex-column pb-5">
+    <h2 class="text-danger">Cart Summary</h2>
+    <div class="w-75 container p-4">
+       <div class="row">
+        <div class="col-8">
+            <table class="table table-bordered shadow">
+                <thead >
+                    <tr >
+                        <th class="text-center">#</th>
+                        <th class="text-center">Product Name</th>
+                        <th class="text-center">image</th>
+                        <th class="text-center" >Quantity</th>
+                        <th class="text-center">price</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let product of allProduct;let i=index"  >
+                        <td class="text-center">{{i+1}}</td>
+                        <td class="text-center">{{product.title}}</td>
+                        <td class="text-center"><img [src]="product.image" width="150px" height="200px" alt=""></td>
+                        <td class="text-center d-flex">
+                            <button (click)="incrementCartProduct(product._id)" class="btn  me-1"><i class="fa-solid fa-plus"></i></button>
+                      {{product.quantity}}
+                            <button (click)="decrementCartProduct(product._id)" class="btn  ms-1"><i class="fa-solid fa-minus"></i></button>
+    
+                        </td>
+                        <td class="text-center">${{product.price}}</td>
+                        <td class="text-center">
+                            <button class="btn outline-light" (click)="removeItem(product._id)">
+                            <i class="fa-solid fa-trash" style="color: #c70a0a;"></i>
+                        </button>
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <button (click)="emptyCartProduct()" class="btn btn-outline-danger">Empty Cart</button>
+                <button routerLink="/" class="btn btn-outline-success ms-3">Add More</button>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3 p-4 shadow" style="height: 250px;"  >
+            <h4 >Grand Total : ${{total}}</h4>
+            <button class="btn btn-success mt-5" (click)="checkOut()" routerLink="/checkout" >CheckOut</button>
+        </div>
+       </div>
+    </div>
+</div>

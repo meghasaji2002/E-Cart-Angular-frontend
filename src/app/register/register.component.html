@@ -1,0 +1,30 @@
+<div class="register">
+    <div class="registerContent w-75 shadow p-5 container">
+         <div class="row">
+             <div class="col-6 p-2">
+                 <div class="d-flex align-items-center justify-content-center flex-column">
+                     <i class="fa-regular fa-handshake fs-2" style="color: #d5106f;"></i>
+                     <h3 style="color: #d5106f;">Join family</h3>
+                 </div>
+                 <div>
+                     <form (ngSubmit)="register()" [formGroup]="registerForm" class="d-flex align-items-center justify-content-center flex-column">
+                        <input type="text" class="form-control mt-3" placeholder="enter username" formControlName="username" name="uname">
+                        <span *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched" class="text-danger">Invalid username</span>
+
+                         <input type="email" class="form-control mt-2" placeholder="enter email Id" formControlName="email" name="email">
+                         <span *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="text-danger">Invalid email</span>
+
+                         <input type="password" class="form-control mt-2" placeholder="enter password" formControlName="password" name="password">
+                         <span *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="text-danger">Invalid password</span>
+
+                         <button type="submit" class="btn mt-4 w-75" style="background-color: #d5106f;color: white;">Register</button>
+                         <p class="mt-4 d-flex align-items-center justify-content-center  ">Already an user? <a class="nav-link active ms-2 text-primary" routerLink="/user/login"><span>Sign In</span></a></p>
+                     </form>
+                 </div>
+             </div>
+             <div class="col-6 p-2">
+                 <img src="https://static.vecteezy.com/system/resources/previews/006/432/643/original/online-store-in-the-concept-of-love-or-valentine-mobile-phones-hearts-cart-love-letter-and-gift-boxes-represent-love-on-a-pink-background-shopping-app-in-the-smartphone-design-for-banner-ad-web-vector.jpg" width="100%" height="100%" alt="">
+             </div>
+         </div>
+    </div>
+ </div>

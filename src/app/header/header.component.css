@@ -1,0 +1,16 @@
+.hearticon:hover{
+ color: white;
+}
+.loginBtn{
+    color: white;
+}
+.loginBtn:hover{
+    background-color: white;
+    color: rgb(204, 10, 101);
+}
+.nav-part-two{
+    width: 350px;
+}
+.wishlistBtn:hover{
+  
+}

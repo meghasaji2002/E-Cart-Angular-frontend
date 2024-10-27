@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="checkOut-page">
+    <h2 class="mt-5 title text-center">Delivery Details</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://t3.ftcdn.net/jpg/01/99/07/38/360_F_199073876_hQNK7LcxwcsqAzcjQkTWzaNvJ5fud7zA.jpg"
+                    alt="delivery-image">
+            </div>
+            <div class="col-md-6">
+                <div class="first-form shadow p-5 mt-3">
+                    <div class="form-content ">
+                        <form [formGroup]="checkoutForm"  *ngIf="!proceedToPayStatus">
+                            <div class="form-floating mb-3">
+                                <input formControlName="uname" name="uname" type="email" class="form-control"
+                                    id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">UserName</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input formControlName="flat" name="flat" type="text" class="form-control"
+                                    id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Apart No</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input formControlName="place" name="place" type="text" class="form-control"
+                                    id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Place</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input formControlName="pincode" name="pincode" type="number" class="form-control"
+                                    id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Pincode</label>
+                            </div>
+
+                            <div class="mt-2 d-flex justify-content-between">
+                                <button (click)="cancel()" class="btn btn-warning">cancel</button>
+                                <button (click)="proceedToPay()" type="submit" class="btn btn-success">Proceed to
+                                    pay</button>
+                            </div>
+                        </form>
+
+                        <div *ngIf="proceedToPayStatus" >
+                            <h5>Confirm the delivery address</h5>
+                            <h6 class="text-secondary">Address : <span
+                                    class="text-primary">{{checkoutForm.value.uname}}</span></h6>
+                            <h6 class="text-secondary">Apartment/Flat : <span
+                                    class="text-primary">{{checkoutForm.value.flat}}</span></h6>
+                            <h6 class="text-secondary">Place : <span
+                                    class="text-primary">{{checkoutForm.value.place}}</span></h6>
+                            <h6 class="text-secondary">Pincode : <span
+                                    class="text-primary">{{checkoutForm.value.pincode}}</span></h6>
+                            <h6 class="text-secondary">Total Amount : <span class="text-danger">$ {{grandTotal}}</span>
+                            </h6>
+
+                            <div *ngIf="!makePaymentStatus" class="mt-2 d-flex justify-content-between">
+                                <button class="btn btn-warning" (click)="back()">Back</button>
+                                <button (click)="makePayment()" class="btn btn-success">Make the payment</button>
+                            </div>
+                            <div *ngIf="makePaymentStatus">
+                                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

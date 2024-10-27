@@ -1,0 +1,101 @@
+<app-header></app-header>
+<div>
+  <div class="w-100 d-flex align-items-center justify-content-center secondHeader shadow">
+    <input type="text" class="form-control w-50 rounded searchInput" placeholder="search products" [(ngModel)]="searchQuery" 
+    (input)="filterProducts()">
+    <button class="btn searchBtn ms-2 px-2 rounded"><i class="fa-solid fa-magnifying-glass  fs-5 "></i></button>
+  </div>
+
+
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://cdn.shopify.com/s/files/1/0099/2867/1291/files/Website_Carousal_Banners_Flat_50_-1280_x_400-Desktop-03_1900x.progressive.jpg?v=1651055961" class="d-block w-100" height="500px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://ecsa.scot/sites/default/files/styles/carousel/public/field/image/website_banner_resized_redbubble_new.png?itok=gSlwmnHM" class="d-block w-100" height="500px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.yorkshirewildlifepark.com/media/rg5lufwh/ywp_2315_web-carousel-3000-x-1050-generic-winter-sale.jpg?anchor=center&mode=crop&width=1600&height=900&rnd=133467763028830000" class="d-block w-100" height="500px" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+    
+   <div class="w-100 d-flex align-items-center justify-content-center">
+      <section class=" py-5">
+          <div class="container px-4 px-lg-5 mt-5">
+             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                  <div class="col mb-5" *ngFor="let product of allproduct">
+                      <div class="card h-100">
+                          <!-- Product image-->
+                          <img routerLink="view-product/{{product.id}}" class="card-img-top" [src]="product.image" height="250px" alt="..." />
+                          <!-- Product details-->
+                          <div class="card-body p-4">
+                              <div class="text-center">
+                                  <!-- Product name-->
+                                  <h5 class="fw-bolder">{{product.title.slice(0,20)}}</h5>
+                                  <!-- Product price-->
+                                 ${{product.price}}
+                              </div>
+                          </div>
+                          <!-- Product actions-->
+                          <div class="card-footer p-4 pt-0 border-top-0 ">
+                              <div class="align-items-center  d-flex justify-content-around ">
+                                  <button (click)="addToWishlist(product)" type="button" class="btn btn-outline-danger">
+                                      <i class="fa-solid fa-heart"></i>
+                                  </button>
+                                  <button (click)="addToCart(product)" type="button" class="btn btn-outline-success">
+                                      <i class="fa-solid fa-cart-shopping"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </section>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

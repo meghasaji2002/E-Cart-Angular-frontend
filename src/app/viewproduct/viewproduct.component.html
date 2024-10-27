@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="w-100  d-flex align-items-center justify-content-center p-5">
+    <section class="w-75 shadow">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class=" row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-4 p-4"><img routerLink="/view-product/{{product.id}}" class="card-img-top mb-5 mb-md-0" [src]="product.image" alt="..." /></div>
+                <div class="col-2"></div>
+                <div class="col-md-6">
+                    <div class="small mb-1">id: {{product._id}}</div>
+                    <h6 class="display-5 fw-bold">{{product.title}}</h6>
+                    <div class="fs-5 mb-5">
+                      
+                        <h4 class="text-primary fs-3 fw-1">${{product.price}}</h4>
+                    </div>
+                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi.</p>
+                    <div class="align-items-center  d-flex justify-content-around ">
+                        <button (click)="addToWishlist(product)" class="btn btn-outline-danger">
+                            <i class="fa-solid fa-heart"><span class="btn-text ms-2">Add to Wishlist</span></i>
+                        </button>
+                        <button (click)="addToCart(product)" class="btn btn-outline-success">
+                            <i class="fa-solid fa-cart-shopping"><span class="btn-text ms-2">Add to Cart</span></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

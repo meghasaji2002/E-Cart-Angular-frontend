@@ -1,0 +1,18 @@
+<div style="height: 80px;width: 100%;background-color: rgba(188, 4, 74, 0.893);padding: 10px 15px;display: flex;align-items: center;justify-content: space-between;">
+   <div class="d-flex align-items-center ">
+    <i class="fa-sharp fa-solid fa-bag-shopping fa-bounce text-light fs-1"></i>
+    <h4 class="text-light ms-3 fw-bold">EzyBuyHub</h4>
+   </div>
+   <div class="d-flex align-items-center justify-content-around nav-part-two ">
+    <div ><button class="btn bg-light border-light wishlistBtn"><a class=" nav-link active" routerLink="/wishlist"><i class="fa-solid fa-heart fs-4" style="color: #c8147d;"></i><span class="badge bg-none  ms-1" style="color: #c8147d;">{{wishlistCount}}</span></a></button></div>
+   
+    <div><button class="btn border-light bg-light cartBtn"><a class="nav-link active" routerLink="/cart"><i class="fa-solid fa-bag-shopping fs-4" style="color: #c8147d;"></i><span class="badge bg-none ms-1" style="color: #c8147d;">{{cartCount}}</span></a></button></div>
+
+    <div><button class="btn bg-light"><a ><i class="fa-solid fa-gift  fs-4" style="color: #c8147d;"></i></a></button></div>
+    <div><button class="btn bg-light"><a ><i class="fa-regular fa-bell  fs-4" style="color: #c8147d;"></i></a></button></div>
+    <div *ngIf="!loginUserName"><a  class="nav-link active" routerLink="user/login"><button class="btn rounded px-2  border-light loginBtn">Login</button></a></div>
+
+    <div *ngIf="loginUserName"><a class="nav-link active" routerLink="user/login"><button (click)="logout()" class="btn rounded px-3  border-light loginBtn"><i class="fa-solid fa-power-off fs-4"></i></button></a></div>
+   </div>
+</div>
+
